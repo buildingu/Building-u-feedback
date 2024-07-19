@@ -31,6 +31,25 @@ const buttonStyles = {
   color: "black",
 };
 
+function validatePassword(password) {
+  if (password.length < 12) {
+    return "Password must be at least 12 characters long";
+  }
+  if (password.length > 32) {
+    return "Password must not exceed 32 characters";
+  }
+  if (!/[A-Z]/.test(password)) {
+    return "Password must contain at least one uppercase letter";
+  }
+  if (!/[!@#$%^&*(),.?":{}|<_+-;]/.test(password)) {
+    return "Password must contain at least one special character";
+  }
+  if (!/\d/.test(password)) {
+    return "Password must contain at least one number";
+  }
+  return null;
+}
+
 function Signup() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -49,9 +68,11 @@ function Signup() {
     validate: {
       fName: (value) =>
         value.length < 2 ? "Name must have at least 2 letters" : null,
-      userName: (value) => (/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value) ? null : "Invalid email"),
-      password: (value) =>
-        value.length < 8 ? "Your password must be at least 8 characters" : null,
+      userName: (value) =>
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value)
+          ? null
+          : "Invalid email",
+      password: validatePassword,
     },
   });
 
@@ -82,7 +103,7 @@ function Signup() {
           }
         }
       } catch (error) {
-        setErrorMessage(error.response.data.error  ?? "An error occurred");
+        setErrorMessage(error.response.data.error ?? "An error occurred");
         openSignupInfoModal();
       }
     }
@@ -126,6 +147,7 @@ function Signup() {
                 withAsterisk
                 required
                 name="password"
+                description="12-32 chars, 1+ uppercase, 1+ number, 1+ special char."
                 label="Password"
                 type="password"
                 placeholder="Enter Password"
