@@ -2,8 +2,7 @@
  A feeback application that allows the interns at building-u, receive feedbacks on their projects (Project is currently being worked on for the Non-Profit Organization called Building-U.
 
 
-# Alpha Release is coming
-Feel free to browse through the code though
+# App is now live
 
 # Preview of Available Pages
 ![Feedback-u](https://github.com/gbudjeakp/Building-u-feedback/assets/61554248/1608df27-c49e-4791-9942-6ea4f24b429b)
@@ -21,26 +20,6 @@ Feel free to browse through the code though
 ### Front-End Stack
 1. The Front-End is being built in react.js
 2. UI frame work being used is mantine
-
-
-### Branch Naming Convention
-#### Create your branch with the below convention
-     Please see the allowed commit terms: fix, feature, hotfix
-   For Front-End: `commit -m "FE-feature-add-footer"`
-
-   For Back-End: `commit -m "BE-feature-add-rate-limiter"`  
-
-### Contribution Rule
- 1. Create a branch
- 2. Create PR and request  code review
- 3. Merge code once review has been approved
-
-### Backend Stack
-1. The backend is currently being built with Nodejs and express
-2. The database is a MySQL database.
-3. Software architectural pattern is that of an MVC (Model-View-Controller)
-4. architectural constraint being used is that of REST (representational state transfer) API.
-5. Redis Cache (Incoming addition) 
 
 
 ## How to Start App
