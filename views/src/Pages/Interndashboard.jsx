@@ -24,6 +24,21 @@ import CreatedRequests from "../Pages/CreatedRequests";
 import Account from "../Pages/Account/";
 import TopBar from "../components/TopBar";
 import Checklist from "./Checklist";
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import { Routes, Route, useLocation } from "react-router-dom";
+import {
+  IconFilePlus,
+  IconClipboardText,
+  IconUser,
+  IconTable,
+} from "@tabler/icons-react";
+
+import FeedbackRequestForm from "../Pages/FeedbackrequestForm";
+import CreatedRequests from "../Pages/CreatedRequests";
+import Account from "../Pages/Account/";
+import TopBar from "../components/TopBar";
+import Checklist from "./Checklist";
 function Interndashboard(props) {
   const navItems = [
     { icon: IconFilePlus, label: 'Create Feedback request', to: 'requestform' },
@@ -35,9 +50,14 @@ function Interndashboard(props) {
     { icon: IconClipboardText, label: "Feedback Requests", to: "myrequests" },
     { icon: IconUser, label: "Account", to: "account" },
     { icon: IconTable, label: "Checklist", to: "checklist" },
+    { icon: IconFilePlus, label: "Create Feedback request", to: "requestform" },
+    { icon: IconClipboardText, label: "Feedback Requests", to: "myrequests" },
+    { icon: IconUser, label: "Account", to: "account" },
+    { icon: IconTable, label: "Checklist", to: "checklist" },
   ];
 
   const location = useLocation();
+
 
   return (
     <div style={{ display: 'flex'}}>
@@ -55,5 +75,6 @@ function Interndashboard(props) {
   );
 }
 
-export default Interndashboard;
 
+
+export default Interndashboard;
