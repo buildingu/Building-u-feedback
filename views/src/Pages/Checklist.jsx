@@ -50,7 +50,7 @@ const Checklist = () => {
   return (
     <Container style={stylingTable}>
       <ScrollArea w="75vw" h="80vh">
-        <div style={{ display: "flex" }}>
+        <Container style={{ display: "flex" }}>
           <Table
             highlightOnHover={true}
             striped={true}
@@ -71,7 +71,7 @@ const Checklist = () => {
               Intern Name
             </Table.Th>
           </Table>
-          <div style={{ display: "block" }}>
+          <Container style={{ display: "block" }}>
             <Table
               highlightOnHover={true}
               striped={true}
@@ -246,9 +246,9 @@ const Checklist = () => {
               </Table.Thead>
               <Table.Tbody></Table.Tbody>
             </Table>
-          </div>
-        </div>
-        <div style={{ display: "flex" }}>
+          </Container>
+        </Container>
+        <Container style={{ display: "flex" }}>
           <Table
             highlightOnHover={true}
             striped={true}
@@ -269,7 +269,7 @@ const Checklist = () => {
           >
             {/* {statusExercises()} */}
           </Table>
-        </div>
+        </Container>
       </ScrollArea>
     </Container>
   );
