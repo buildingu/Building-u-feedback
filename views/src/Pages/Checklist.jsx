@@ -14,7 +14,8 @@ const elements = [
   { position: 56, mass: 137.33, symbol: "Ba", name: "Barium" },
   { position: 58, mass: 140.12, symbol: "Ce", name: "Cerium" },
 ];
-
+const stylingMainTopicsHeader = { textAlign: "center", width: "10%" };
+const stylingTopicStatusHeader = { width: "calc(25%/3)" };
 // const nameList = () => {
 //   for (internName in database) {
 //     return (
@@ -82,34 +83,20 @@ const Checklist = () => {
             >
               <Table.Thead w="100%">
                 <Table.Tr w="100%">
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    HTML
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    CSS
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    MQ/RD
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    Bootstrap
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
+                  <Table.Th style={stylingMainTopicsHeader}>HTML</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>CSS</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>MQ/RD</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>Bootstrap</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>
                     Javascript
                   </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
+                  <Table.Th style={stylingMainTopicsHeader}>
                     Javascript and the DOM
                   </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    React
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    SQL
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
-                    ExpressJS
-                  </Table.Th>
-                  <Table.Th style={{ textAlign: "center", width: "10%" }}>
+                  <Table.Th style={stylingMainTopicsHeader}>React</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>SQL</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>ExpressJS</Table.Th>
+                  <Table.Th style={stylingMainTopicsHeader}>
                     API Integration
                   </Table.Th>
                 </Table.Tr>
@@ -126,132 +113,132 @@ const Checklist = () => {
             >
               <Table.Thead>
                 <Table.Tr>
-                  <Table.Th id="htmlSubmitted" style={{ width: "8.3333333%" }}>
+                  <Table.Th id="htmlSubmitted" style={stylingTopicStatusHeader}>
                     Submitted
                   </Table.Th>
-                  <Table.Th id="htmlCompleted" style={{ width: "8.3333333%" }}>
+                  <Table.Th id="htmlCompleted" style={stylingTopicStatusHeader}>
                     Completed
                   </Table.Th>
-                  <Table.Th id="htmlReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="htmlReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
-                  <Table.Th id="cssSubmitted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="cssSubmitted" style={stylingTopicStatusHeader}>
                     Submitted
                   </Table.Th>
-                  <Table.Th id="cssCompleted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="cssCompleted" style={stylingTopicStatusHeader}>
                     Completed
                   </Table.Th>
-                  <Table.Th id="cssReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="cssReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
-                  <Table.Th id="mdrqSubmitted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="mdrqSubmitted" style={stylingTopicStatusHeader}>
                     Submitted
                   </Table.Th>
-                  <Table.Th id="mdrqCompleted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="mdrqCompleted" style={stylingTopicStatusHeader}>
                     Completed
                   </Table.Th>
-                  <Table.Th id="mdrqReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="mdrqReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
                   <Table.Th
                     id="bootstrapSubmitted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Submitted
                   </Table.Th>
                   <Table.Th
                     id="bootstrapCompleted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Completed
                   </Table.Th>
                   <Table.Th
                     id="bootstrapReviewer"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Reviewer
                   </Table.Th>
-                  <Table.Th id="jsSubmitted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="jsSubmitted" style={stylingTopicStatusHeader}>
                     Submitted
                   </Table.Th>
-                  <Table.Th id="jsCompleted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="jsCompleted" style={stylingTopicStatusHeader}>
                     Completed
                   </Table.Th>
-                  <Table.Th id="jsReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="jsReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
                   <Table.Th
                     id="jsDomSubmitted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Submitted
                   </Table.Th>
                   <Table.Th
                     id="jsDomCompleted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Completed
                   </Table.Th>
-                  <Table.Th id="jsDomReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="jsDomReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
                   <Table.Th
                     id="reactSubmitted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Submitted
                   </Table.Th>
                   <Table.Th
                     id="reactCompleted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Completed
                   </Table.Th>
-                  <Table.Th id="reactReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="reactReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
-                  <Table.Th id="sqlSubmitted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="sqlSubmitted" style={stylingTopicStatusHeader}>
                     Submitted
                   </Table.Th>
-                  <Table.Th id="sqlCompleted" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="sqlCompleted" style={stylingTopicStatusHeader}>
                     Completed
                   </Table.Th>
-                  <Table.Th id="sqlReviewer" style={{ width: "calc(25%/3)" }}>
+                  <Table.Th id="sqlReviewer" style={stylingTopicStatusHeader}>
                     Reviewer
                   </Table.Th>
                   <Table.Th
                     id="expressJsSubmitted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Submitted
                   </Table.Th>
                   <Table.Th
                     id="expressJsCompleted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Completed
                   </Table.Th>
                   <Table.Th
                     id="expressJsReviewer"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Reviewer
                   </Table.Th>
                   <Table.Th
                     id="apiIntegrationSubmitted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Submitted
                   </Table.Th>
                   <Table.Th
                     id="apiIntegrationCompleted"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Completed
                   </Table.Th>
                   <Table.Th
                     id="apiIntegrationReviewer"
-                    style={{ width: "calc(25%/3)" }}
+                    style={stylingTopicStatusHeader}
                   >
                     Reviewer
                   </Table.Th>
