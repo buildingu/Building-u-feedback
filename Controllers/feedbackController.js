@@ -5,6 +5,7 @@ const FeedbackRequest = db.FeedbackRequest;
 const Feedbacks = db.Feedbacks;
 const User = db.User;
 const exerciseInfo = db.ExerciseInfo;
+const RedisClient = db.RedisClient;
 const jwt = require("jsonwebtoken");
 const feedbackrequestValidator = require("../utility/inputValidator/feedbackrequestValidator");
 const feedbackValidator = require("../utility/inputValidator/feedbackValidator");
@@ -16,6 +17,19 @@ const logger = require('../utility/logger/logger');
 /*This controller allows the interns to request for feedback using the request
 feedback forms.
  */
+
+const CACHE_TTL = 300; // cache time to live: 5 minutes
+
+const getCachedFeedBack = async (key) => {
+  try {
+    const cachedFeedBack = await RedisClient.get(`feedback:${key}`);
+    return JSON.parse(cachedFeedBack);
+  } catch (err) {
+    logger.error('Error pinging Redis:', err);
+  }
+
+  return null;
+}
 
 const submitFeedBack = async (req, res) => {
   const { authToken } = req.cookies;
@@ -75,6 +89,12 @@ const submitFeedBack = async (req, res) => {
 const getAllFeedBackRequestsForms = async (req, res) => {
   try {
 
+      const cache = await getCachedFeedBack("all");
+
+      if (cache) {
+        return res.status(200).json({ data: cache });
+      }
+
       const feedBackrequests = await FeedbackRequest.findAll({
         where: {
           status: {
@@ -82,6 +102,10 @@ const getAllFeedBackRequestsForms = async (req, res) => {
           },
         },
       });
+
+      // cache result
+      await RedisClient.setEx('feedback:all', CACHE_TTL, JSON.stringify(feedBackrequests));
+
       res.status(200).json({ data: feedBackrequests });
 
   } catch (err) {
@@ -124,9 +148,16 @@ const getMentorFeedback = async (req, res) => {
     }
 
     // Retrieve all feedback associated with the feedback request
+    const cache = getCachedFeedBack(`request:${feedbackrequestId}`)
+    if (cache) {
+      return res.json({ data: cache });
+    }
+    
     const allFeedbackOnFeedbackRequest = await Feedbacks.findAll({
       where: { feedbackrequestId },
     });
+
+    await RedisClient.setEx(`feedback:request:${feedbackrequestId}`, CACHE_TTL, JSON.stringify(allFeedbackOnFeedbackRequest));
 
     res.json({ data: allFeedbackOnFeedbackRequest });
   } catch (err) {
