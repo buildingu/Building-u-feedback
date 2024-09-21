@@ -1,3 +1,17 @@
+import React from "react";
+import Sidebar from "../components/Sidebar";
+import { Routes, Route, useLocation } from "react-router-dom";
+import {
+  IconListDetails,
+  IconCheckupList,
+  IconUser,
+  IconTable,
+} from "@tabler/icons-react";
+import FeedbackRequestQueue from "../Pages/FeedbackQueue";
+import AssignedFeedback from "../Pages/AssignedFeedback";
+import Account from "../Pages/Account";
+import TopBar from "../components/TopBar";
+import Checklist from "./Checklist";
 import React from 'react';
 import Sidebar from '../components/Sidebar';
 import { Routes, Route, useLocation } from 'react-router-dom'; 
@@ -37,6 +51,10 @@ import Checklist from "./Checklist";
 
 function Mentordashboard(props) {
   const navItems = [
+    { icon: IconListDetails, label: "Feedback Queue", to: "feedbackqueue" },
+    { icon: IconCheckupList, label: "Assigned Feedback", to: "assigned" },
+    { icon: IconUser, label: "Account", to: "account" },
+    { icon: IconTable, label: "Checklist", to: "checklist" },
     { icon: IconListDetails, label: 'Feedback Queue', to: 'feedbackqueue' },
     { icon: IconCheckupList, label: 'Assigned Feedback', to: 'assigned' },
     { icon: IconUser, label: 'Account', to: 'account' }, 
