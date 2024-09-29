@@ -1,3 +1,4 @@
+require('dotenv').config();
 const dbConfig = require("../config/db.config")["development"];
 const { Sequelize, DataTypes } = require("sequelize");
 
@@ -13,6 +14,21 @@ const Feedbacks = require("./Feedbacks")(sequelize, DataTypes);
 const Otptoken = require("./Otptoken")(sequelize, DataTypes);
 const ExerciseInfo = require("./ExerciseInfo")(sequelize, DataTypes);
 
+// Redis client
+const {createClient} = require("redis");
+const RedisClient = createClient({
+  host: process.env.REDIS_HOST || "localhost",
+  port: process.env.REDIS_PORT || 6379
+});
+
+(async () => {
+  try {
+    await RedisClient.connect();
+    console.log("Redis connected")
+  } catch (err) {
+    console.error('Unable to connect to Redis:', err);
+  }
+})();
 
 //This was poorly desgined. Should spent more time fixing this
 User.hasMany(FeedbackRequest, { foreignKey: "userId" });
@@ -57,4 +73,5 @@ module.exports = {
   Feedbacks,
   Otptoken,
   ExerciseInfo,
+  RedisClient,
 };

@@ -105,5 +105,25 @@ Once connected, create a new database for your project.
 ### After setting up to run the database:-
 docker-compose up -d
 
+# Setting Up Redis Cache Using Docker
+
+## Prerequisites:-
+Same as Database setup, install Docker
+
+### Step-by-Step Instructions:-
+1. Pull the Redis Docker Image
+```
+docker pull redis:latest
+```
+
+2. Start the cache, while forwarding the port
+   default: (host:localhost, port: 6379)
+```
+docker start -p 6379:6379 redis:latest
+```
+
+3. Set the corresponding env variables for REDIS_HOST and REDIS_CACHE
+
+
 ## Conclusion
 Using Docker provides a flexible and easy way to set up a local database for development. By following the steps above, you can quickly get a MySQL or PostgreSQL database up and running.
