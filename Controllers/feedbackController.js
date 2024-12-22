@@ -6,6 +6,7 @@ const Feedbacks = db.Feedbacks;
 const User = db.User;
 const exerciseInfo = db.ExerciseInfo;
 const jwt = require("jsonwebtoken");
+const feedbackCache = require("../utility/cache/feedbackCache");
 const feedbackrequestValidator = require("../utility/inputValidator/feedbackrequestValidator");
 const feedbackValidator = require("../utility/inputValidator/feedbackValidator");
 const {
@@ -75,6 +76,13 @@ const submitFeedBack = async (req, res) => {
 const getAllFeedBackRequestsForms = async (req, res) => {
   try {
 
+      const cache = await feedbackCache.get("all");
+
+      if (cache) {
+        return res.status(200).json({ data: cache });
+      }
+
+      // cache miss
       const feedBackrequests = await FeedbackRequest.findAll({
         where: {
           status: {
@@ -82,6 +90,9 @@ const getAllFeedBackRequestsForms = async (req, res) => {
           },
         },
       });
+
+      await feedbackCache.set('all', feedBackrequests);
+
       res.status(200).json({ data: feedBackrequests });
 
   } catch (err) {
@@ -124,9 +135,17 @@ const getMentorFeedback = async (req, res) => {
     }
 
     // Retrieve all feedback associated with the feedback request
+    const cache = getCachedFeedBack(`request:${feedbackrequestId}`)
+    if (cache) {
+      return res.json({ data: cache });
+    }
+    
+    // cache miss
     const allFeedbackOnFeedbackRequest = await Feedbacks.findAll({
       where: { feedbackrequestId },
     });
+
+    await feedbackCache.set(`request:${feedbackrequestId}`, allFeedbackOnFeedbackRequest);
 
     res.json({ data: allFeedbackOnFeedbackRequest });
   } catch (err) {
