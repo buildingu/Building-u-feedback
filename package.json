@@ -23,14 +23,38 @@
     "mysql2": "^3.6.1",
     "node": "^20.7.0",
     "nodemailer": "^6.9.7",
+    "prop-types": "^15.8.1",
     "redis": "^4.7.0",
     "sequelize": "^6.33.0",
     "uuid": "^9.0.1",
     "winston": "^3.13.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
+    "eslint": "^9.18.0",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "globals": "^15.14.0",
     "nodemon": "^3.0.2",
     "sequelize-cli": "^6.6.2",
     "vitest": "^2.1.8"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "plugin:react/jsx-runtime"
+    ],
+    "plugins": [
+      "react"
+    ],
+    "parserOptions": {
+      "ecmaVersion": 12,
+      "sourceType": "module"
+    },
+    "rules": {
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-runtime": "error"
+    }
   }
 }

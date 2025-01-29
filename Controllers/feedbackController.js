@@ -167,7 +167,7 @@ const getMentorFeedback = async (req, res) => {
     });
 
     res.json({ data: allFeedbackOnFeedbackRequest });
-  } catch (err) {
+  } catch (error) {
     res.status(500).json({ error: "Internal server error" });
     logger.error(`Feedback was not fetched due to error`, {
       error: JSON.stringify(error),
@@ -217,8 +217,7 @@ const assignFeedBack = async (req, res) => {
 
     // Grab the user information based on the id for updates of the request form.
     const userDetail = await User.findOne({
-      where: username,
-      where: { id: id },
+      where: { username: username, id: id },
     });
 
     // Find the specific feedback request record based on feedbackrequestId

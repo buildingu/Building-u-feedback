@@ -156,7 +156,7 @@ const logout = async (req, res) => {
     path: "/",
   });
 
-  await redisClient.quit();
+  // await redisClient.quit();
   res.status(200).json({ msg: "User was Logged Out Successfully" });
   return;
 };
@@ -165,15 +165,15 @@ const logout = async (req, res) => {
 // the app know whether or not a user is logged in.
 const authorized = async (req, res) => {
   try {
-    let userInfo = await redisClient.GET("UserInfo");
-    if (!userInfo) {
-      logger.info("Auth not found in cache");
-      await redisClient.SET("UserInfo", JSON.stringify(res.locals.user));
-      return res.json({ user: res.locals.user });
-    } else {
-      logger.info("Auth done from cache");
-      return res.json({ user: JSON.parse(userInfo) });
-    }
+    // let userInfo = await redisClient.GET("UserInfo");
+    // if (!userInfo) {
+    logger.info("Auth not found in cache");
+    // await redisClient.SET("UserInfo", JSON.stringify(res.locals.user));
+    return res.json({ user: res.locals.user });
+    // } else {
+    //   logger.info("Auth done from cache");
+    //   return res.json({ user: JSON.parse(userInfo) });
+    // }
   } catch (error) {
     logger.error(error.message);
   }

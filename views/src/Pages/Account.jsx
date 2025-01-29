@@ -10,7 +10,8 @@ import {
 } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { useDisclosure } from "@mantine/hooks";
-import {baseUrl} from "../API/index"
+import { baseUrl } from "../API/index";
+
 
 const paperStyle = {
   padding: 40,
@@ -63,16 +64,16 @@ function Account({ user }) {
         oldPassword: form.values.oldPassword,
       };
 
-    const response = await axios.patch(
+      const response = await axios.patch(
         `${baseUrl}/api/users/updateaccount`,
         formData,
         {
-          withCredentials: true, 
+          withCredentials: true,
         }
       );
-       if(response.status === 200){
+      if (response.status === 200) {
         openUpdateAccountInfoModal();
-       }
+      }
     } catch (error) {
       console.log(error);
     }

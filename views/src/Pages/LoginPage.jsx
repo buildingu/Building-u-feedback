@@ -41,9 +41,9 @@ function LoginPage() {
 
   const [errorMessage, setErrorMessage] = useState("");
 
-  const navigateToForgotpassword  = ()=>{
-    navigate("/forgotpassword")
-  }
+  const navigateToForgotpassword = () => {
+    navigate("/forgotpassword");
+  };
 
   const form = useForm({
     initialValues: { userName: "", password: "" },
@@ -155,8 +155,8 @@ function LoginPage() {
               </Anchor>
             </Group>
             <Anchor onClick={navigateToForgotpassword} size="md">
-                Forgot password
-              </Anchor>
+              Forgot password
+            </Anchor>
           </div>
         </Paper>
       </Center>

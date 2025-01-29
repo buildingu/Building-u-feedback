@@ -3,7 +3,6 @@ import {
   Table,
   Container,
   ScrollArea,
-  Center,
   TableTr,
   TableTd,
   TableTh,
