@@ -6,11 +6,12 @@ const port = process.env.PORT || 5001;
 
 
 //////Express MiddleWares//////////////
- const prodOrigin = "https://buildingu.github.io";
+//const prodOrigin = "https://buildingu.github.io";
+const prodOrigin = "https://feedback.building-u.com/Building-u-feedback/"
 const devOrigin = "http://localhost:5173";
 
 const corsOptions = {
-  origin: [prodOrigin, devOrigin], 
+  origin: [prodOrigin, devOrigin],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization'],
