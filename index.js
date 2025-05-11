@@ -34,7 +34,8 @@ app.use('/api/feedback', feedbackRouter);
 app.use('/api/password', passwordRouter);
 
 app.get('/', (req, res) => {
-  res.redirect('https://buildingu.github.io/Building-u-feedback/');
+  //res.redirect('https://buildingu.github.io/Building-u-feedback/');
+  res.redirect('https://feedback.building-u.com/Building-u-feedback/');
 });
 
 app.listen(port, () => {

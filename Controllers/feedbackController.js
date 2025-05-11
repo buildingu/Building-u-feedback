@@ -61,7 +61,7 @@ const submitFeedBack = async (req, res) => {
       };
       await exerciseInfo.create(add_User_To_ExerciseInfo_Table);
       await FeedbackRequest.create(feedBackRequestData);
-      // studentNotification(feedBackRequestData);
+      studentNotification(feedBackRequestData);
     }
     await redisFunctions.cacheInvalidator([
       `FeedbackRequestForms-${id}`,
